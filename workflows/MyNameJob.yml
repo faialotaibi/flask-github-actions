@@ -1,0 +1,27 @@
+name: MyNameJob
+
+on:
+  push:
+
+env:
+  MY_NAME: Default  
+
+jobs:
+  Fname:
+    runs-on: ubuntu-latest
+    outputs:
+      FIRST_NAME: ${{ steps.first_name.outputs.FIRST_NAME }}
+    steps:
+      - name: "First Name"
+        id: first_name
+        run: echo "FIRST_NAME=Ahmed" >> $GITHUB_OUTPUT
+
+  LName:
+    runs-on: ubuntu-latest
+    needs: Fname
+    steps:
+      - name: "Last Name"
+        env:
+          FIRST_NAME: ${{ needs.first_name.outputs.FIRST_NAME }}
+          LAST_NAME: AlRasheed
+        run: echo "My Name is $FIRST_NAME $LAST_NAME"
