@@ -1,4 +1,4 @@
-name: test
+name: Test
 on:
   pull_request:
     branches:
@@ -10,6 +10,6 @@ jobs:
          - name: Repo Checker  
            uses: actions/checkout@v2
          
-         - name: Test
+         - name: Test Docker
            uses: docker compose run test pytest
       
