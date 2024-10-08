@@ -1,7 +1,7 @@
 name: Dockertest
 
 on:
-  push:
+  pull-request:
     branches:
       - main
 
@@ -27,6 +27,6 @@ jobs:
         with: 
           push: true
           tags: |
-            Gearvian/flask-github-actions:latest
-            Gearvian/flask-github-actions:${{ github.sha }}
-          cache-from: Gearvian/flask-github-actions:latest
+            gearvian/flask-github-actions:latest
+            gearvian/flask-github-actions:${{ github.sha }}
+          cache-from: gearvian/flask-github-actions:latest
