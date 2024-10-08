@@ -34,3 +34,6 @@ jobs:
             devabdullahq/flask-docker-ci:latest
             devabdullahq/flask-docker-ci:${{ github.sha}}
           cache-from: devabdullahq/flask-docker-ci:latest
+      - 
+        name: Test
+        run: docker compose run test
