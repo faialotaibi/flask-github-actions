@@ -1,10 +1,7 @@
-name: PythonTest
+name: Dockertest
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
@@ -16,16 +13,21 @@ jobs:
     - name: Get the Code
       uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
+    - name: SetUp Docker
+      uses: docker/setup-buildx-action@v3
+      
+      
+    - name: Login in Docker
+      uses: docker/login-action@v3
+      with: |
+          $USERNAME : ${{secrets.DOCKERHUB_USERNAME}
+          $PASSWORD : ${{secrets.DOCKERHUB_USERNAME}}
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pytest
-
-    - name: Run tests
-      run: pytest
+    - name: Build and Push
+      uses: docker/build-push-action@v6
+      with: 
+        push:true
+      tags: |
+        Gearvian/flask-github-actions/latest
+        Gearvian/flask-github-actions/${{ github.sha }}
+      cache-from: Gearvian/flask-github-actions/latest
