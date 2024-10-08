@@ -9,6 +9,6 @@ def client():
 
 def test_hello_world(client):
     rv = client.get('/')
-    assert rv.data == b'HWold!'
+    assert rv.data == b'H Wold!'
 
 
