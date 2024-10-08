@@ -5,12 +5,12 @@
 1. **Clone the Repository:**
 
      ```bash
-     git clone https://github.com/faialotaibi/github-actions-app.git
+     git clone https://github.com/faialotaibi/flask-github-actions.git
      ```
 
 2. **Navigate to the Project Directory:**
    ```bash
-   cd github-actions-app
+   cd flask-github-actions
    ```
 
 3. **Set Up a Virtual Environment:**
@@ -40,16 +40,3 @@
    ```
    pytest
    ```
-### Build and Run the Docker Images
-
-1. Build image
-
-```
-docker build -t your-image-name .
-```
-
-2. 
-```
-docker run -p 5000:5000 your-image-name
-```
-# flask-github-actions
