@@ -13,7 +13,7 @@
    cd flask-github-actions
    ```
 
-3. **Set Up a Virtual Environment:**
+3. **Set Up a Virtual Environment:** 
    ```bash
    python -m venv venv
    source venv/bin/activate  # macOS/Linux
