@@ -1,7 +1,7 @@
-name: Dockertestt
+name: Dockertest
 
 on:
-  pull-request:
+  pull_request:  
     branches:
       - main
 
